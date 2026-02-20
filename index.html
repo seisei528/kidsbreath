@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放課後等デイサービス キッズブレス | 子どもたちの「伝えたい」を育む場所</title>
+    <meta name="description" content="キッズブレスは、子どもたちの個性を大切にし、表現力やコミュニケーション能力を育む放課後等デイサービスです。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* パステル虹色とアースカラーのパレット（ロゴに準拠） */
+            --primary: #f4a6a6;
+            /* パステルピンク/レッド */
+            --secondary: #92cbf5;
+            /* パステルブルー */
+            --accent: #f8eb96;
+            /* パステルイエロー */
+            --rainbow-orange: #f5c796;
+            --rainbow-green: #a8e0a8;
+            --rainbow-purple: #c5a3f5;
+            --sage-green: #8b9a73;
+            /* 植物の茎の色 */
+
+            --text-main: #7a6c66;
+            /* ロゴの文字色（アースブラウン） */
+            --text-light: #9a8f8a;
+            --background: #fffdfa;
+            /* 温かみのあるオフホワイト */
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* より手書き感のある温かいフォントに変更 */
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* アニメーション */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(2deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        /* ヘッダー */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 50px;
+            /* 上下の余白を少し縮めてバランスを取る */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(122, 108, 102, 0.05);
+        }
+
+        /* ロゴ画像用のスタイリング */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 50px;
+            /* ロゴ画像の高さ */
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-left: 10px;
+            display: none;
+            /* 画像がある場合はテキストを非表示にする設定 */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(244, 166, 166, 0.4);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 166, 166, 0.6);
+            background: #f19191;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* 縦並びに戻す */
+            align-items: center;
+            /* 中央揃え */
+            justify-content: center;
+            position: relative;
+            padding: 130px 20px 60px;
+            /* 下部に余白を追加して、お知らせとかぶらないようにする */
+            text-align: center;
+            /* テキストも中央揃え */
+            overflow: hidden;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(244, 166, 166, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(146, 203, 245, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(248, 235, 150, 0.1) 0%, transparent 30%);
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInDown 1s ease forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ヒーローセクション用メイン画像のスタイル */
+        .hero-main-img {
+            max-width: 80%;
+            /* 画面幅に合わせて縮小 */
+            width: 600px;
+            /* 基本の幅 */
+            height: auto;
+            z-index: 2;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(122, 108, 102, 0.1);
+            margin-bottom: 40px;
+            /* 下のテキストとの間隔を空ける */
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 25px;
+            color: var(--text-main);
+        }
+
+        .hero-title span.rainbow-text {
+            background: linear-gradient(90deg,
+                    var(--primary),
+                    var(--rainbow-orange),
+                    var(--accent),
+                    var(--rainbow-green),
+                    var(--secondary),
+                    var(--rainbow-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .hero-text {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        /* ニュース（お知らせ）セクション */
+        .news-section {
+            background: var(--white);
+            padding: 60px 40px;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            /* ヒーローセクションとの被りをやめる（マイナスマージン削除） */
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(122, 108, 102, 0.08);
+            position: relative;
+            z-index: 5;
+            width: 90%;
+            /* スマホなどでもはみ出ないように幅を調整 */
+        }
+
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px dashed rgba(244, 166, 166, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .news-title {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .news-title::before {
+            content: '📢';
+            font-size: 1.5rem;
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(154, 143, 138, 0.1);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            gap: 20px;
+        }
+
+        .news-link:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 180px;
+        }
+
+        .news-date {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .news-tag {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .news-tag.event {
+            background: var(--rainbow-orange);
+        }
+
+        .news-tag.info {
+            background: var(--secondary);
+        }
+
+        .news-tag.important {
+            background: var(--primary);
+        }
+
+        .news-text {
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .hero-graphics {
+            display: none;
+            /* 元の装飾を非表示に */
+        }
+
+        /* セクション共通 */
+        .section {
+            padding: 100px 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 60px;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '✿';
+            display: block;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+
+        /* 特徴セクション */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(122, 108, 102, 0.06);
+            border: 2px dashed rgba(244, 166, 166, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--sage-green);
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ご利用の流れセクション */
+        .flow-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .flow-step {
+            background: var(--white);
+            padding: 25px 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(122, 108, 102, 0.05);
+            border-left: 8px solid var(--secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .flow-step:nth-child(2) {
+            border-left-color: var(--rainbow-green);
+        }
+
+        .flow-step:nth-child(3) {
+            border-left-color: var(--rainbow-orange);
+        }
+
+        .flow-step:nth-child(4) {
+            border-left-color: var(--primary);
+        }
+
+        .flow-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            background: rgba(154, 143, 138, 0.1);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .flow-content h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        .flow-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ページ案内カードセクション */
+        .page-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .page-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: 0 8px 25px rgba(122, 108, 102, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid transparent;
+        }
+
+        .page-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(122, 108, 102, 0.12);
+            border-color: var(--primary);
+        }
+
+        .page-card-img-wrap {
+            width: 100%;
+            height: 180px;
+            background: #f0f0f0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .page-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .page-card:hover .page-card-img {
+            transform: scale(1.05);
+        }
+
+        .page-card-content {
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .page-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-card-title::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .page-card:hover .page-card-title::after {
+            transform: translateX(5px);
+        }
+
+        .page-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* プログラム（1日の流れ） - 不要になったため削除対象のCSSですが互換性のため残す */
+        .timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 30px;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-time-marker {
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            background: var(--white);
+            border: 5px solid var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--background);
+        }
+
+        .timeline-item:nth-child(2) .timeline-time-marker {
+            border-color: var(--rainbow-orange);
+        }
+
+        .timeline-item:nth-child(3) .timeline-time-marker {
+            border-color: var(--accent);
+        }
+
+        .timeline-item:nth-child(4) .timeline-time-marker {
+            border-color: var(--rainbow-green);
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 25px 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(122, 108, 102, 0.05);
+        }
+
+        .timeline-content h3 {
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* ギャラリーなどの装飾 */
+        .deco-flower {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        /* フッター */
+        footer {
+            background: var(--text-main);
+            color: #efefef;
+            text-align: center;
+            padding: 60px 20px 30px;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-info {
+            color: #d0c9c5;
+            margin-bottom: 30px;
+            line-height: 2;
+            font-size: 0.95rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            font-size: 0.85rem;
+            color: #a09793;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            /* ハンバーガーメニューボタン */
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 30px;
+                height: 24px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                z-index: 1001;
+                /* メニューより上に配置 */
+            }
+
+            .hamburger span {
+                width: 30px;
+                height: 3px;
+                background: var(--text-main);
+                border-radius: 10px;
+                transition: all 0.3s linear;
+                position: relative;
+                transform-origin: 1px;
+            }
+
+            /* ハンバーガーメニュー展開時の×印アニメーション */
+            .hamburger.active span:first-child {
+                transform: rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+
+            /* ナビゲーションメニュー（スマホ用） */
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.05);
+                z-index: 1000;
+            }
+
+            nav.active {
+                right: 0;
+                /* アクティブ時にスライドイン */
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+
+            nav a {
+                font-size: 1.2rem;
+            }
+
+            .cta-btn-header {
+                display: none;
+                /* スマホではヘッダーのCTAボタンを非表示にする（メニュー内に入れるか、下部のボタンを使ってもらう） */
+            }
+
+            .hero {
+                padding: 100px 20px 40px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-main-img {
+                width: 100%;
+                max-width: 400px;
+                margin-bottom: 30px;
+            }
+
+            .hero-graphics {
+                display: none;
+            }
+
+            .news-section {
+                margin: 20px 20px 60px;
+                padding: 40px 20px;
+            }
+
+            .news-link {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .news-meta {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="assets/images/logo.jpg" alt="キッズブレス" class="logo-image" style="height: 100px;">
+        </a>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#news" class="nav-link">お知らせ</a></li>
+                <li><a href="#about" class="nav-link">キッズブレスとは</a></li>
+                <li><a href="#features" class="nav-link">特徴</a></li>
+                <li><a href="pages/houday.html" class="nav-link">放デイとは</a></li>
+                <li><a href="pages/schedule.html" class="nav-link">1日の流れ</a></li>
+                <li><a href="pages/company.html" class="nav-link">会社概要</a></li>
+            </ul>
+        </nav>
+        <a href="https://forms.gle/LtdDE99Fpg6NqA3y9" target="_blank" class="cta-btn cta-btn-header">見学・相談する</a>
+        <button class="hamburger" id="hamburger-menu" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <section class="hero" id="about">
+        <!-- 子供たちが笑っている画像を中央上部に配置 -->
+        <img src="assets/images/hero_kids.jpg" alt="笑顔の子供たち" class="hero-main-img">
+
+        <!-- テキストコンテンツを下部に配置 -->
+        <div class="hero-content">
+            <h1 class="hero-title">「伝えたい」が<br><span class="rainbow-text">虹のように広がる</span></h1>
+            <p class="hero-text">
+                キッズブレスは、子どもたちの個性を大切にし、「表現する楽しさ」や「自分らしくいる喜び」を育む放課後等デイサービスです。<br>
+                温かく安心できる場所で、一人ひとりのペースに合わせたサポートを行います。
+            </p>
+            <a href="https://forms.gle/LtdDE99Fpg6NqA3y9" target="_blank" class="cta-btn"
+                style="padding: 15px 35px; font-size: 1.1rem;">無料体験に申し込む</a>
+        </div>
+    </section>
+
+    <!-- News お知らせセクション -->
+    <section id="news" class="news-section">
+        <div class="news-header">
+            <h2 class="news-title">News お知らせ</h2>
+            <a href="#"
+                style="color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.95rem;">一覧を見る ＞</a>
+        </div>
+        <ul class="news-list">
+            <li class="news-item">
+                <a href="#" class="news-link">
+                    <div class="news-meta">
+                        <span class="news-date">2026.04.01</span>
+                        <span class="news-tag info">お知らせ</span>
+                    </div>
+                    <div class="news-text">🌸 キッズブレスが新規オープンいたします！施設見学の受付を開始しました。</div>
+                </a>
+            </li>
+            <li class="news-item">
+                <a href="#" class="news-link">
+                    <div class="news-meta">
+                        <span class="news-date">2026.04.15</span>
+                        <span class="news-tag event">イベント</span>
+                    </div>
+                    <div class="news-text">【無料体験会】「はじめての絵の具あそび」を開催します🎨（要予約）</div>
+                </a>
+            </li>
+            <li class="news-item">
+                <a href="#" class="news-link">
+                    <div class="news-meta">
+                        <span class="news-date">2026.05.01</span>
+                        <span class="news-tag important">重要</span>
+                    </div>
+                    <div class="news-text">ゴールデンウィーク期間中の営業日時についてのご案内</div>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="features" class="section">
+        <h2 class="section-title">キッズブレスの特徴</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🌱</div>
+                <h3 class="feature-title">表現力を育むプログラム</h3>
+                <p class="feature-desc">文章、イラスト、映像など、様々な表現を通じて、自分の気持ちを形にする楽しさを学びます。「伝える力」が自信に繋がります。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌼</div>
+                <h3 class="feature-title">社会性・コミュニケーション</h3>
+                <p class="feature-desc">お友達との共同作業や、季節のプロジェクトを通じて、自然な形で他者との関わり方や協調性を身につけます。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏡</div>
+                <h3 class="feature-title">ホッとできる第２の居場所</h3>
+                <p class="feature-desc">専門資格を持ったスタッフが、一人ひとりの特性やその日の体調に寄り添い、ホッと安心できる温かい環境を提供します。</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 各ページへの案内リンク -->
+    <section class="section" style="padding-top: 0; padding-bottom: 60px;">
+        <div class="page-links">
+            <!-- リンクカード：放デイとは -->
+            <a href="pages/houday.html" class="page-card">
+                <div class="page-card-img-wrap">
+                    <!-- サンプル画像（プレースホルダー）、ユーザーに後で差し替えてもらいます -->
+                    <img src="assets/images/card_houday.jpg" alt="放デイとは" class="page-card-img"
+                        onerror="this.src='https://placehold.co/600x400/f4a6a6/ffffff?text=Houday&font=oswald'">
+                </div>
+                <div class="page-card-content">
+                    <h3 class="page-card-title">放デイとは</h3>
+                    <p class="page-card-desc">放課後等デイサービスの制度や、キッズブレスをご利用いただくまでの基本的な流れをご案内します。</p>
+                </div>
+            </a>
+
+            <!-- リンクカード：1日の流れ -->
+            <a href="pages/schedule.html" class="page-card">
+                <div class="page-card-img-wrap">
+                    <img src="assets/images/card_schedule.jpg" alt="1日の流れ" class="page-card-img"
+                        onerror="this.src='https://placehold.co/600x400/f8eb96/7a6c66?text=Schedule&font=oswald'">
+                </div>
+                <div class="page-card-content">
+                    <h3 class="page-card-title">1日の流れ</h3>
+                    <p class="page-card-desc">お迎えからお見送りまで。子どもたちが施設でどのように過ごしているか、平日のスケジュールをご紹介します。</p>
+                </div>
+            </a>
+
+            <!-- リンクカード：会社概要 -->
+            <a href="pages/company.html" class="page-card">
+                <div class="page-card-img-wrap">
+                    <img src="assets/images/card_company.jpg" alt="会社概要" class="page-card-img"
+                        onerror="this.src='https://placehold.co/600x400/a8e0a8/ffffff?text=Company&font=oswald'">
+                </div>
+                <div class="page-card-content">
+                    <h3 class="page-card-title">会社概要</h3>
+                    <p class="page-card-desc">運営施設、所在地、電話番号など、施設を運営する法人の基本情報について記載しています。</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ご利用の流れセクションを移動（お問い合わせに繋がるデザインに変更） -->
+    <section id="flow" class="section"
+        style="background: rgba(146, 203, 245, 0.05); border-radius: 40px 40px 0 0; padding-bottom: 40px;">
+        <h2 class="section-title">ご利用までの流れ</h2>
+        <div class="flow-container">
+            <div class="flow-step">
+                <div class="flow-number">1</div>
+                <div class="flow-content">
+                    <h3>お問い合わせ・ご見学</h3>
+                    <p>まずはお電話またはWEBにて当施設へお問い合わせください。施設のご見学や個別相談を実施いたします。</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-number">2</div>
+                <div class="flow-content">
+                    <h3>受給者証の申請・取得</h3>
+                    <p>お住まいの市区町村の窓口にて、「通所受給者証」の申請手続きを行っていただきます。取得に関するサポートもいたします。</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-number">3</div>
+                <div class="flow-content">
+                    <h3>個別支援計画の作成</h3>
+                    <p>お子さまの状況や保護者様のご要望をお伺いし、専任のスタッフが個別支援計画を作成します。</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-number">4</div>
+                <div class="flow-content">
+                    <h3>ご契約・ご利用開始</h3>
+                    <p>契約書類を取り交わし、ご利用開始となります。安心して通っていただけるよう、初めは短い時間からの慣らし利用も可能です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section"
+        style="text-align: center; background: rgba(146, 203, 245, 0.05); padding-top: 0; padding-bottom: 80px;">
+        <div
+            style="background: rgba(248, 235, 150, 0.2); border-radius: 40px; padding: 60px 40px; max-width: 900px; margin: 0 auto; box-shadow: 0 10px 30px rgba(122, 108, 102, 0.05);">
+            <h2 class="section-title" style="margin-bottom: 30px;">お問い合わせ・見学申込</h2>
+            <p style="margin-bottom: 40px; font-size: 1.1rem; color: var(--text-main);">
+                施設のご見学や、プログラムの体験は随時受け付けております。<br>まずはお気軽にご相談ください。<span class="deco-flower">✿</span>
+            </p>
+            <a href="https://forms.gle/LtdDE99Fpg6NqA3y9" target="_blank" class="cta-btn"
+                style="padding: 18px 45px; font-size: 1.2rem; background: var(--rainbow-orange); box-shadow: 0 4px 15px rgba(245, 199, 150, 0.4);">
+                WEBからのお問い合わせ
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <!-- カスミソウのイラスト装飾 (左) -->
+        <img src="assets/images/gypsophila_bouquet.jpg" alt="カスミソウ"
+            style="position: absolute; bottom: 0; left: 0; height: 100%; width: auto; opacity: 0.7; pointer-events: none; object-fit: contain; object-position: bottom left;"
+            onerror="this.src='https://placehold.co/400x600/7a6c66/ffffff?text=%E2%9C%BF'">
+        <!-- カスミソウのイラスト装飾 (右) -->
+        <img src="assets/images/gypsophila_bouquet.jpg" alt="カスミソウ"
+            style="position: absolute; bottom: 0; right: 0; height: 100%; width: auto; opacity: 0.7; pointer-events: none; object-fit: contain; object-position: bottom right; transform: scaleX(-1);"
+            onerror="this.src='https://placehold.co/400x600/7a6c66/ffffff?text=%E2%9C%BF'">
+
+        <div style="max-width: 800px; margin: 0 auto; position: relative; z-index: 1;">
+            <div class="footer-logo">キッズブレス</div>
+            <div class="footer-info">
+                〒000-0000 〇〇県〇〇市〇〇町1-2-3<br>
+                TEL: 000-000-0000 （受付時間: 平日 10:00〜18:00）<br>
+                指定放課後等デイサービス事業所
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Kids Breath. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.feature-card, .timeline-content').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // ハンバーガーメニューの開閉制御
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // スマホ幅の表示時のみハンバーガーボタンを表示
+        function checkWidth() {
+            if (window.innerWidth <= 768) {
+                hamburger.style.display = 'flex';
+            } else {
+                hamburger.style.display = 'none';
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        }
+        window.addEventListener('resize', checkWidth);
+        checkWidth();
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // リンクをクリックしたらメニューを閉じる
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
