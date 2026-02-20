@@ -1,0 +1,214 @@
+:root {
+    /* パステル虹色とアースカラーのパレット（ロゴに準拠） */
+    --primary: #f4a6a6;
+    --secondary: #92cbf5;
+    --accent: #f8eb96;
+    --rainbow-orange: #f5c796;
+    --rainbow-green: #a8e0a8;
+    --rainbow-purple: #c5a3f5;
+    --sage-green: #8b9a73;
+    --text-main: #7a6c66;
+    --text-light: #9a8f8a;
+    --background: #fffdfa;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background-color: var(--background);
+    color: var(--text-main);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* アニメーション */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* ヘッダー */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(122, 108, 102, 0.05);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+.cta-btn {
+    background: var(--primary);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(244, 166, 166, 0.4);
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 166, 166, 0.6);
+    background: #f19191;
+}
+
+/* 共通セクション設定 */
+.section {
+    padding: 100px 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+    color: var(--text-main);
+    position: relative;
+}
+
+.section-title::after {
+    content: '✿';
+    display: block;
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+/* フッター */
+footer {
+    background: var(--text-main);
+    color: #efefef;
+    text-align: center;
+    padding: 60px 20px 30px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.footer-info {
+    color: #d0c9c5;
+    margin-bottom: 30px;
+    line-height: 2;
+    font-size: 0.95rem;
+}
+
+.footer-bottom {
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    font-size: 0.85rem;
+    color: #a09793;
+}
+
+/* レスポンシブ (ハンバーガーメニュー含む) */
+@media (max-width: 768px) {
+    header { padding: 15px 20px; }
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    .hamburger span {
+        width: 30px;
+        height: 3px;
+        background: var(--text-main);
+        border-radius: 10px;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
+    }
+    .hamburger.active span:first-child { transform: rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg); }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+    }
+    nav.active { right: 0; }
+    nav ul { flex-direction: column; align-items: center; gap: 25px; }
+    .cta-btn-header { display: none; }
+}

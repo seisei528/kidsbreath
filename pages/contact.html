@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | キッズブレス</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            padding-top: 150px;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(245, 199, 150, 0.2);
+            margin-bottom: 50px;
+            border-radius: 0 0 40px 40px;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            color: var(--rainbow-orange);
+        }
+
+        .content-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(122, 108, 102, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" class="logo-container">
+            <img src="../assets/images/logo.jpg" alt="キッズブレス" class="logo-image" style="height: 100px;">
+        </a>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="../index.html#news" class="nav-link">お知らせ</a></li>
+                <li><a href="../index.html#about" class="nav-link">キッズブレスとは</a></li>
+                <li><a href="../index.html#features" class="nav-link">特徴</a></li>
+                <li><a href="houday.html" class="nav-link">放デイとは</a></li>
+                <li><a href="schedule.html" class="nav-link">1日の流れ</a></li>
+                <li><a href="company.html" class="nav-link">会社概要</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger" id="hamburger-menu" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <div class="page-header">
+        <h1 class="page-title">お問い合わせ・見学申込</h1>
+        <p style="margin-top: 10px;">ご質問や見学のご希望など、お気軽にお送りください。</p>
+    </div>
+
+    <div class="content-wrap">
+        <div class="contact-form">
+            <form action="https://formsubmit.co/tomomi.ai.528@gmail.com" method="POST">
+                <!-- スパム防止の設定 -->
+                <input type="text" name="_honey" style="display:none">
+                <!-- 送信後のリダイレクト先（トップページへ） -->
+                <input type="hidden" name="_next" value="https://noe-lp.pages.dev/index.html">
+                <!-- キャプチャを無効化（ユーザーの利便性のため） -->
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-group">
+                    <label class="form-label">お問い合わせ種類</label>
+                    <select class="form-select" name="お問い合わせ種類" required>
+                        <option value="">選択してください</option>
+                        <option value="見学・体験の申し込み">見学・体験の申し込み</option>
+                        <option value="資料請求">資料請求</option>
+                        <option value="その他">その他（ご質問など）</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">保護者様のお名前</label>
+                    <input type="text" class="form-input" name="お名前" placeholder="例：山田 花子" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">メールアドレス</label>
+                    <input type="email" class="form-input" name="email" placeholder="example@mail.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">電話番号</label>
+                    <input type="tel" class="form-input" name="電話番号" placeholder="000-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">お問い合わせ内容</label>
+                    <textarea class="form-textarea" name="内容" placeholder="ご質問やご相談内容をご記入ください。" required></textarea>
+                </div>
+                <button type="submit" class="cta-btn submit-btn">内容を確認して送信する</button>
+            </form>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="../index.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">＜
+                トップページに戻る</a>
+        </div>
+    </div>
+
+    <footer>
+        <img src="../assets/images/gypsophila_bouquet.jpg" alt="カスミソウ"
+            style="position: absolute; bottom: 0; left: 0; height: 100%; width: auto; opacity: 0.7; pointer-events: none; object-fit: contain; object-position: bottom left;"
+            onerror="this.src='https://placehold.co/400x600/7a6c66/ffffff?text=%E2%9C%BF'">
+        <img src="../assets/images/gypsophila_bouquet.jpg" alt="カスミソウ"
+            style="position: absolute; bottom: 0; right: 0; height: 100%; width: auto; opacity: 0.7; pointer-events: none; object-fit: contain; object-position: bottom right; transform: scaleX(-1);"
+            onerror="this.src='https://placehold.co/400x600/7a6c66/ffffff?text=%E2%9C%BF'">
+
+        <div style="max-width: 800px; margin: 0 auto; position: relative; z-index: 1;">
+            <div class="footer-logo">キッズブレス</div>
+            <div class="footer-info">
+                〒000-0000 〇〇県〇〇市〇〇町1-2-3<br>
+                TEL: 000-000-0000 （受付時間: 平日 10:00〜18:00）<br>
+                指定放課後等デイサービス事業所
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Kids Breath. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function checkWidth() {
+            if (window.innerWidth <= 768) {
+                hamburger.style.display = 'flex';
+            } else {
+                hamburger.style.display = 'none';
+                hamburger.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
+            }
+        }
+        window.addEventListener('resize', checkWidth);
+        checkWidth();
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            if (navMenu) navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
