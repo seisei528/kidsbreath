@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>放課後等デイサービスとは | キッズブレス</title>
+    <title>放デイとは・1日の流れ | キッズブレス</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
@@ -28,10 +28,91 @@
             color: var(--primary);
         }
 
+        /* 1日の流れ用のスタイル */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            margin-top: 60px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 30px;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-time-marker {
+            position: absolute;
+            left: 20px;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            background: #ffffff;
+            border: 5px solid var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--background);
+        }
+
+        .timeline-item:nth-child(2) .timeline-time-marker {
+            border-color: var(--rainbow-orange);
+        }
+
+        .timeline-item:nth-child(3) .timeline-time-marker {
+            border-color: var(--accent);
+        }
+
+        .timeline-item:nth-child(4) .timeline-time-marker {
+            border-color: var(--rainbow-green);
+        }
+
+        .timeline-content {
+            background: #ffffff;
+            padding: 25px 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(122, 108, 102, 0.05);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .feature-desc {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
         .content-wrap {
-            max-width: 900px;
+            max-width: 1100px;
+            /* サイドバイサイドのために幅を広げる */
             margin: 0 auto;
             padding: 0 20px 80px;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .info-box {
@@ -66,13 +147,14 @@
                 <li><a href="../index.html#news" class="nav-link">お知らせ</a></li>
                 <li><a href="../index.html#about" class="nav-link">キッズブレスとは</a></li>
                 <li><a href="../index.html#features" class="nav-link">特徴</a></li>
-                <li><a href="houday.html" class="nav-link" style="color: var(--primary); font-weight: 700;">放デイとは</a>
+                <li><a href="houday.html" class="nav-link"
+                        style="color: var(--primary); font-weight: 700;">放デイとは・1日の流れ</a>
                 </li>
-                <li><a href="schedule.html" class="nav-link">1日の流れ</a></li>
+                <li><a href="thanks.html" class="nav-link">Special Thanks</a></li>
                 <li><a href="company.html" class="nav-link">会社概要</a></li>
             </ul>
         </nav>
-        <a href="https://forms.gle/LtdDE99Fpg6NqA3y9" target="_blank" class="cta-btn cta-btn-header">見学・相談する</a>
+        <a href="https://forms.gle/ztLe97ZX6tTnh1mP7" target="_blank" class="cta-btn cta-btn-header">見学・相談する</a>
         <button class="hamburger" id="hamburger-menu" style="display: none;">
             <span></span>
             <span></span>
@@ -81,16 +163,145 @@
     </header>
 
     <div class="page-header">
-        <h1 class="page-title">放課後等デイサービスとは</h1>
-        <p style="margin-top: 10px;">障害のある就学児童が、放課後や夏休みなどに通うことのできる施設です。</p>
+        <h1 class="page-title">放課後等デイサービスとは・1日の流れ</h1>
     </div>
 
     <div class="content-wrap">
         <div class="info-box">
             <h3>制度について</h3>
-            <p>放課後等デイサービスは、児童福祉法に基づく支援事業です。発達に心配のあるお子さまや、障害を持つお子さま（小学生〜高校生）が、学校の授業終了後や長期休暇中などに通い、生活能力の向上のための訓練等を継続的に提供する施設です。
-            </p>
-            <p>「障害児の学童保育」とも呼ばれており、保護者の皆様の就労支援やレスパイト（休息）ケアとしての役割も担っています。</p>
+            <p>障がいのある小学生〜高校生が、放課後や学校がお休みの日、また、長期休暇などに通うことのできる療育施設です。</p>
+            <p>子ども達が、日常生活を送るための動作や社会性の習得を目指す支援を行います。</p>
+            <p>また、子どもだけでなく、保護者さんの相談やアドバイスを児童の状況に応じて、サポートすることを、当事業所の役割とします。</p>
+        </div>
+
+        <h2 style="text-align: center; margin: 60px 0 30px; color: var(--text-main);">1日の流れ</h2>
+
+        <div class="schedule-grid">
+            <!-- 平日パターン -->
+            <div class="schedule-column">
+                <h3
+                    style="text-align: center; margin-bottom: 25px; color: var(--primary); background: rgba(244, 166, 166, 0.1); padding: 10px; border-radius: 10px;">
+                    平日</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker"></div>
+                        <div class="timeline-content">
+                            <h3>14:00~</h3>
+                            <p class="feature-desc">
+                                <strong>来所準備・送迎・到着</strong><br>学校までお迎えにいきます。事業所に到着後、手洗いうがい、検温などのバイタルチェックを行います。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker"></div>
+                        <div class="timeline-content">
+                            <h3>15:00~</h3>
+                            <p class="feature-desc"><strong>おやつ</strong><br>子ども達のお楽しみタイムです。みんなで楽しく、美味しいおやつを食べます。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker"></div>
+                        <div class="timeline-content">
+                            <h3>15:30~</h3>
+                            <p class="feature-desc">
+                                <strong>はじまりの会・スケジュール確認・集団活動・個別支援</strong><br>活動の見通しを認識することで、子ども達の自主性を培います。また、その子に合った、集団活動や、個別支援を行います。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker"></div>
+                        <div class="timeline-content">
+                            <h3>17:00~</h3>
+                            <p class="feature-desc">
+                                <strong>そうじ・おわりの会</strong><br>みんなでお掃除を行う中で、社会性や集団行動で必要な考え方を身につけます。最後に、1日の振り返りと終わりの挨拶をして、お家に帰ります。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker"></div>
+                        <div class="timeline-content">
+                            <h3>17:30~</h3>
+                            <p class="feature-desc"><strong>送迎</strong><br>送迎が必要な子ども達のお家まで、車でスタッフが送り届けます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 休日パターン -->
+            <div class="schedule-column">
+                <h3
+                    style="text-align: center; margin-bottom: 25px; color: var(--secondary); background: rgba(146, 203, 245, 0.1); padding: 10px; border-radius: 10px;">
+                    休日（土・長期休暇など）</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker" style="border-color: var(--secondary);"></div>
+                        <div class="timeline-content">
+                            <h3>9:00~</h3>
+                            <p class="feature-desc">
+                                <strong>来所準備・送迎・到着</strong><br>お家までお迎えにいきます。事業所に到着後、手洗いうがい、検温などのバイタルチェックを行います。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker" style="border-color: var(--rainbow-green);"></div>
+                        <div class="timeline-content">
+                            <h3>10:00~</h3>
+                            <p class="feature-desc">
+                                <strong>はじまりの会・スケジュール確認・集団活動・個別支援・自由時間</strong><br>活動の見通しを認識することで、子ども達の自主性を培います。また、その子に合った、集団活動や、個別支援を行います。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker" style="border-color: var(--accent);"></div>
+                        <div class="timeline-content">
+                            <h3>12:00~</h3>
+                            <p class="feature-desc"><strong>昼食</strong><br>みんなでワイワイ昼食タイムです。机をみんなで囲んで、お家から持ってきたお弁当を食べます。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker" style="border-color: var(--rainbow-orange);"></div>
+                        <div class="timeline-content">
+                            <h3>13:00~</h3>
+                            <p class="feature-desc">
+                                <strong>ゆっくりタイム</strong><br>ご飯を食べた後は、お腹を休めるために動画鑑賞や音楽鑑賞をします。次のプログラムまで、体力温存です。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker" style="border-color: var(--secondary);"></div>
+                        <div class="timeline-content">
+                            <h3>13:30~</h3>
+                            <p class="feature-desc">
+                                <strong>集団活動・運動・自由時間</strong><br>※活動予定によっては外出支援を行います。運動や集団活動を通じて、社会性を身につけます。外出支援では、公共の場でのルールやマナーなどを、お勉強します。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker" style="border-color: var(--primary);"></div>
+                        <div class="timeline-content">
+                            <h3>15:00~</h3>
+                            <p class="feature-desc"><strong>おやつ</strong><br>子ども達のお楽しみタイムです。みんなで楽しく、美味しいおやつを食べます。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker" style="border-color: var(--rainbow-green);"></div>
+                        <div class="timeline-content">
+                            <h3>15:30~</h3>
+                            <p class="feature-desc">
+                                <strong>そうじ・おわりの会</strong><br>みんなでお掃除を行う中で、社会性や集団行動で必要な考え方を身につけます。最後に、1日の振り返りと終わりの挨拶をして、お家に帰ります。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time-marker" style="border-color: var(--rainbow-orange);"></div>
+                        <div class="timeline-content">
+                            <h3>16:00~</h3>
+                            <p class="feature-desc"><strong>送迎</strong><br>送迎が必要な子ども達のお家まで、車でスタッフが送り届けます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div style="text-align: center; margin-top: 60px;">
@@ -110,8 +321,8 @@
         <div style="max-width: 800px; margin: 0 auto; position: relative; z-index: 1;">
             <div class="footer-logo">キッズブレス</div>
             <div class="footer-info">
-                〒000-0000 〇〇県〇〇市〇〇町1-2-3<br>
-                TEL: 000-000-0000 （受付時間: 平日 10:00〜18:00）<br>
+                733-0032 広島市西区東観音町21-16<br>
+                TEL: 082-299-2877 （全日10:00~19:00）<br>
                 指定放課後等デイサービス事業所
             </div>
         </div>
